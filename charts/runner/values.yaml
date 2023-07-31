@@ -6,7 +6,8 @@
 config:
   ## @param config.apps Configuration values for the VCS apps to be used by the runner
   ## apps:
-  ## - name: app1
+  ## - id: app1
+  ##   name: Runner prod app
   ##   provider: github
   ##   github:
   ##     apiHost: ""
