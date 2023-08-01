@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   runner:
   - apiVersion: v2
+    appVersion: v1.0.0-beta.2
+    created: "2023-08-01T09:14:42.003053549Z"
+    description: Helm Chart for DeepSource Runner
+    digest: 69c4240969e3b73d86a593c8ea8e0c863571122efafe1595ad886104255e2150
+    maintainers:
+    - email: support@deepsource.io
+      name: DeepSource
+    name: runner
+    type: application
+    urls:
+    - https://github.com/DeepSourceCorp/helm-charts/releases/download/runner-1.0.2/runner-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: v1.0.0-beta.1
     created: "2023-07-31T12:58:49.442443855Z"
     description: Helm Chart for DeepSource Runner
@@ -27,4 +40,4 @@ entries:
     urls:
     - https://github.com/DeepSourceCorp/helm-charts/releases/download/runner-1.0.0/runner-1.0.0.tgz
     version: 1.0.0
-generated: "2023-07-31T12:58:49.442455857Z"
+generated: "2023-08-01T09:14:42.00307305Z"
