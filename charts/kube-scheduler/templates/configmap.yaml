@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "kube-scheduler.fullname" . }}
+  labels:
+    {{- include "kube-scheduler.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+{{ .Values.config | toYaml | toString | indent 4 }}
