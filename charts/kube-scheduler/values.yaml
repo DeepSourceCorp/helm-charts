@@ -76,16 +76,6 @@ podSecurityContext: {}
 ##
 securityContext: {}
 
-## kube-scheduler service parameters
-##
-service:
-  ## @param service.type kube-scheduler service type
-  ##
-  type: ClusterIP
-  ## @param service.port kube-scheduler service HTTP port
-  ##
-  port: 80
-
 ## kube-scheduler resource requests and limits
 ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
 ##

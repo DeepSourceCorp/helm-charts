@@ -36,10 +36,6 @@ spec:
             - /usr/local/bin/kube-scheduler
             - --config=/etc/kubernetes/kube-scheduler/config.yaml
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
-              protocol: TCP
           livenessProbe:
             httpGet:
               path: /healthz

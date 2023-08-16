@@ -18,8 +18,6 @@
 | `podAnnotations`                                | Annotations for the kube-scheduler pods                                                                                          | `{}`                             |
 | `podSecurityContext`                            | Security context policies to add to the kube-scheduler pods                                                                      | `{}`                             |
 | `securityContext`                               | Security context policies to add to the containers                                                                               | `{}`                             |
-| `service.type`                                  | kube-scheduler service type                                                                                                      | `ClusterIP`                      |
-| `service.port`                                  | kube-scheduler service HTTP port                                                                                                 | `80`                             |
 | `resources.limits.cpu`                          | The resources limits for the kube-scheduler containers                                                                           | `100m`                           |
 | `resources.limits.memory`                       | The resources limits for the kube-scheduler containers                                                                           | `128Mi`                          |
 | `resources.requests.cpu`                        | The requested cpu for the kube-scheduler containers                                                                              | `100m`                           |
