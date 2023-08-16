@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  kube-scheduler:
+  - apiVersion: v2
+    appVersion: v1.24.13
+    created: "2023-08-16T11:08:40.426401912Z"
+    description: Helm Chart for the Kubernetes Scheduler
+    digest: 1d3a1ccc8e7cfcab48b6cd6d131391c4222ee4d9a23afb361c0165031c52911f
+    name: kube-scheduler
+    type: application
+    urls:
+    - https://github.com/DeepSourceCorp/helm-charts/releases/download/kube-scheduler-1.0.0/kube-scheduler-1.0.0.tgz
+    version: 1.0.0
   runner:
   - apiVersion: v2
     appVersion: v1.0.0-beta.2
@@ -40,4 +51,4 @@ entries:
     urls:
     - https://github.com/DeepSourceCorp/helm-charts/releases/download/runner-1.0.0/runner-1.0.0.tgz
     version: 1.0.0
-generated: "2023-08-01T09:14:42.00307305Z"
+generated: "2023-08-16T11:08:40.426423112Z"
