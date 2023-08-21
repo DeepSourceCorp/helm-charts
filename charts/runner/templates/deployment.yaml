@@ -71,7 +71,7 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: {{ include "runner.fullname" . }}
+            secretName: {{ .Values.secrets.runnerSecret.secretName }}
             items:
               - key: config
                 path: config.yaml
