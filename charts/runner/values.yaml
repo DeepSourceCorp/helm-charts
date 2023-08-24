@@ -1,33 +1,11 @@
 ## @section Runner configuration Parameters
 ##
 
-## The list of secrets that need to be created for deploying DeepSource Runner
-##
-secrets:
-  ## The secret that contains the DeepSource Runner configuration. Check the `config` field
-  ## for the format of the config
-  ##
-  runnerSecret:
-    ## @param secrets.runnerSecret.create Set to `false` if the secret has been created manually
-    create: true
-    secretName: "deepsource-runner-config"
-  ## The secret to pull images from registry
-  ##
-  imagePullSecret:
-    ## @param secrets.imagePullSecret.create Set to `false` if the secret has been created manually
-    create: true
-    secretName: "deepsource-runner-image-registry"
-  ## The secret that containing the credentials to upload and download artifacts to/from remote object storage provider
-  ##
-  artifactsSecret:
-    ## @param secrets.artifactsSecret.create Set to `false` if the secret has been created manually
-    create: true
-    secretName: "deepsource-runner-artifacts-credentials"
-
-
 ## The configuration values for deepsource runner, this will create a secret to be used by the runner
 ##
 config:
+  createSecret: true
+  secretName: ""
   ## @param config.apps Configuration values for the VCS apps to be used by the runner
   ## apps:
   ## - id: app1
@@ -53,6 +31,8 @@ config:
   ## Configuration values for the object storage to use for the runner
   ##
   objectStorage:
+    createSecret: true
+    secretName: ""
     ## @param config.objectStorage.provider The provider to use for the object storage (e.g gcs, s3)
     ##
     provider: ""
@@ -120,6 +100,8 @@ image:
 ## @param imageRegistry.username The username to use for the image registry
 ## @param imageRegistry.password The password to use for the image registry
 imageRegistry:
+  createSecret: true
+  secretName: ""
   registryUrl: ""
   username: ""
   password: ""

@@ -46,9 +46,12 @@ spec:
               value: {{ .Release.Namespace }}
             - name: TASK_NODE_SELECTOR
               value: {{ .Values.nodeSelector | toYaml | toString | quote }}
-            - name: TASK_ANALYSIS_ARTIFACT_SECRET_NAME
-              value: {{ .Values.secrets.artifactsSecret.secretName }}
-
+            - name: TASK_ARTIFACT_SECRET_NAME
+            {{- if .Values.config.objectStorage.createSecret }}
+              value: {{ include "runner.fullname" . }}-object-storage
+            {{- else }}
+              value: {{ .Values.config.objectStorage.secretName }}
+            {{- end }}
           ports:
             - name: http
               containerPort: 8080
@@ -74,7 +77,11 @@ spec:
       volumes:
         - name: secret
           secret:
-            secretName: {{ .Values.secrets.runnerSecret.secretName }}
+            {{- if .Values.config.createSecret}}
+            secretName: {{ include "runner.fullname" . }}
+            {{- else }}
+            secretName: {{ .Values.config.secretName }}
+            {{- end }}
             items:
               - key: config
                 path: config.yaml
