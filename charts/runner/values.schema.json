@@ -62,13 +62,21 @@
                 "objectStorage": {
                     "type": "object",
                     "properties": {
-                        "backend": {
+                        "provider": {
                             "type": "string"
                         },
                         "bucket": {
                             "type": "string"
                         },
                         "credential": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "sentry": {
+                    "type": "object",
+                    "properties": {
+                        "dsn": {
                             "type": "string"
                         }
                     }
