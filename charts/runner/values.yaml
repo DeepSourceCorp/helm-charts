@@ -4,6 +4,12 @@
 ## The configuration values for deepsource runner, this will create a secret to be used by the runner
 ##
 config:
+  ## @param config.createSecret Whether to create a secret for the runner config
+  ##
+  createSecret: true
+  ## @param config.secretName The name of the secret to use for the runner, if created externally
+  ##
+  secretName: ""
   ## @param config.apps Configuration values for the VCS apps to be used by the runner
   ## apps:
   ## - id: app1
@@ -29,9 +35,15 @@ config:
   ## Configuration values for the object storage to use for the runner
   ##
   objectStorage:
-    ## @param config.objectStorage.backend The backend to use for the object storage (e.g gcs)
+    ## @param config.objectStorage.createSecret Whether to create a secret for the object storage
     ##
-    backend: ""
+    createSecret: true
+    ## @param config.objectStorage.secretName The name of the secret to use for the object storage, if created externally
+    ##
+    secretName: ""
+    ## @param config.objectStorage.provider The provider to use for the object storage (e.g gcs, s3)
+    ##
+    provider: ""
     ## @param config.objectStorage.bucket The bucket to use for the object storage
     ##
     bucket: ""
@@ -73,6 +85,12 @@ config:
     key: ""
     ## @param config.saml.metadataUrl The metadata url to use for the identity provider
     metadataUrl: ""
+  ## Configuration values for the sentry integration
+  ##
+  sentry:
+    ## @param config.sentry.dsn The DSN to use for the sentry integration
+    ##
+    dsn: ""
 
 ## @section Common Parameters
 ##
@@ -92,10 +110,14 @@ image:
   tag: ""
 
 ## Deepsource runner image registry configuration
+## @param imageRegistry.createSecret Whether to create a secret for the image registry
+## @param imageRegistry.secretName The name of the secret to use for the image registry, if created externally
 ## @param imageRegistry.registryUrl The registry url to use for the task images
 ## @param imageRegistry.username The username to use for the image registry
 ## @param imageRegistry.password The password to use for the image registry
 imageRegistry:
+  createSecret: true
+  secretName: ""
   registryUrl: ""
   username: ""
   password: ""

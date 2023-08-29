@@ -21,7 +21,11 @@ spec:
         {{- include "runner.selectorLabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
+        {{- if .Values.imageRegistry.createSecret }}
         - name: {{ include "runner.fullname" . }}-image-registry
+        {{- else }}
+        - name: {{ .Values.imageRegistry.secretName }}
+        {{- end }}
       serviceAccountName: {{ include "runner.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
@@ -39,13 +43,23 @@ spec:
             - name: RQLITE_PORT
               value: "4001"
             - name: TASK_IMAGE_PULL_SECRET_NAME
+              {{- if .Values.imageRegistry.createSecret }}
               value: {{ include "runner.fullname" . }}-image-registry
+              {{- else }}
+              value: {{ .Values.imageRegistry.secretName }}
+              {{- end }}
             - name: TASK_IMAGE_REGISTRY_URL
               value: {{ .Values.imageRegistry.registryUrl }}
             - name: TASK_NAMESPACE
               value: {{ .Release.Namespace }}
             - name: TASK_NODE_SELECTOR
               value: {{ .Values.nodeSelector | toYaml | toString | quote }}
+            - name: TASK_ARTIFACT_SECRET_NAME
+              {{- if .Values.config.objectStorage.createSecret }}
+              value: {{ include "runner.fullname" . }}-object-storage
+              {{- else }}
+              value: {{ .Values.config.objectStorage.secretName }}
+              {{- end }}
           ports:
             - name: http
               containerPort: 8080
@@ -71,7 +85,11 @@ spec:
       volumes:
         - name: secret
           secret:
+            {{- if .Values.config.createSecret}}
             secretName: {{ include "runner.fullname" . }}
+            {{- else }}
+            secretName: {{ .Values.config.secretName }}
+            {{- end }}
             items:
               - key: config
                 path: config.yaml

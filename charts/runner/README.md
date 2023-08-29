@@ -2,24 +2,29 @@
 
 ### Runner configuration Parameters
 
-| Name                              | Description                                                    | Value   |
-| --------------------------------- | -------------------------------------------------------------- | ------- |
-| `config.apps`                     | Configuration values for the VCS apps to be used by the runner | `[]`    |
-| `config.deepsource.host`          | The host of the deepsource remote                              | `""`    |
-| `config.deepsource.publicKey`     | The public key to use for the deepsource remote                | `""`    |
-| `config.objectStorage.backend`    | The backend to use for the object storage (e.g gcs)            | `""`    |
-| `config.objectStorage.bucket`     | The bucket to use for the object storage                       | `""`    |
-| `config.objectStorage.credential` | The credentials value to use for the object storage            | `""`    |
-| `config.runner.id`                | The id of the runner                                           | `""`    |
-| `config.runner.host`              | The host of the runner to use                                  | `""`    |
-| `config.runner.clientId`          | The client id to use for the runner                            | `""`    |
-| `config.runner.clientSecret`      | The client secret to use for the runner                        | `""`    |
-| `config.runner.privateKey`        | The private key to use for the runner                          | `""`    |
-| `config.runner.webhookSecret`     | The webhook secret to use for the runner                       | `""`    |
-| `config.saml.enabled`             | Whether to enable SAML2.0 authentication                       | `false` |
-| `config.saml.certificate`         | The certificate to use for the runner as service provider      | `""`    |
-| `config.saml.key`                 | The private key to use for the runner as service provider      | `""`    |
-| `config.saml.metadataUrl`         | The metadata url to use for the identity provider              | `""`    |
+| Name                                | Description                                                                 | Value   |
+| ----------------------------------- | --------------------------------------------------------------------------- | ------- |
+| `config.createSecret`               | Whether to create a secret for the runner config                            | `true`  |
+| `config.secretName`                 | The name of the secret to use for the runner, if created externally         | `""`    |
+| `config.apps`                       | Configuration values for the VCS apps to be used by the runner              | `[]`    |
+| `config.deepsource.host`            | The host of the deepsource remote                                           | `""`    |
+| `config.deepsource.publicKey`       | The public key to use for the deepsource remote                             | `""`    |
+| `config.objectStorage.createSecret` | Whether to create a secret for the object storage                           | `true`  |
+| `config.objectStorage.secretName`   | The name of the secret to use for the object storage, if created externally | `""`    |
+| `config.objectStorage.provider`     | The provider to use for the object storage (e.g gcs, s3)                    | `""`    |
+| `config.objectStorage.bucket`       | The bucket to use for the object storage                                    | `""`    |
+| `config.objectStorage.credential`   | The credentials value to use for the object storage                         | `""`    |
+| `config.runner.id`                  | The id of the runner                                                        | `""`    |
+| `config.runner.host`                | The host of the runner to use                                               | `""`    |
+| `config.runner.clientId`            | The client id to use for the runner                                         | `""`    |
+| `config.runner.clientSecret`        | The client secret to use for the runner                                     | `""`    |
+| `config.runner.privateKey`          | The private key to use for the runner                                       | `""`    |
+| `config.runner.webhookSecret`       | The webhook secret to use for the runner                                    | `""`    |
+| `config.saml.enabled`               | Whether to enable SAML2.0 authentication                                    | `false` |
+| `config.saml.certificate`           | The certificate to use for the runner as service provider                   | `""`    |
+| `config.saml.key`                   | The private key to use for the runner as service provider                   | `""`    |
+| `config.saml.metadataUrl`           | The metadata url to use for the identity provider                           | `""`    |
+| `config.sentry.dsn`                 | The DSN to use for the sentry integration                                   | `""`    |
 
 ### Common Parameters
 
@@ -29,6 +34,8 @@
 | `image.repository`                              | deepsource runner image repository                                                                                               | `proxy.deepsource.com/images/deepsource-production/runner` |
 | `image.pullPolicy`                              | deepsource runner image pull policy                                                                                              | `Always`                                                   |
 | `image.tag`                                     | deepsource runner image tag                                                                                                      | `""`                                                       |
+| `imageRegistry.createSecret`                    | Whether to create a secret for the image registry                                                                                | `true`                                                     |
+| `imageRegistry.secretName`                      | The name of the secret to use for the image registry, if created externally                                                      | `""`                                                       |
 | `imageRegistry.registryUrl`                     | The registry url to use for the task images                                                                                      | `""`                                                       |
 | `imageRegistry.username`                        | The username to use for the image registry                                                                                       | `""`                                                       |
 | `imageRegistry.password`                        | The password to use for the image registry                                                                                       | `""`                                                       |
