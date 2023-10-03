@@ -10,6 +10,8 @@ on:
 jobs:
   scan:
     runs-on: ubuntu-latest
+    env:
+        DEEPSOURCE_DSN: ${{ secrets.DEEPSOURCE_DSN }}
     steps:
       - uses: actions/checkout@v3
         with:
