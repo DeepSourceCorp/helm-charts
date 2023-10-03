@@ -5,3 +5,6 @@ name = "secrets"
 
 [[analyzers]]
 name = "kube-linter"
+
+[[analyzers]]
+name = "infer"
