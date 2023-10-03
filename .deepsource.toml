@@ -2,9 +2,3 @@ version = 1
 
 [[analyzers]]
 name = "secrets"
-
-[[analyzers]]
-name = "kube-linter"
-
-[[analyzers]]
-name = "infer"
