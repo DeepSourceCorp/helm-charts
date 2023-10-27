@@ -19,7 +19,12 @@ jobs:
           echo "event->sha"
           echo ${{ github.event.sha }}
           echo "with env"
-          echo ${{ github.event.sha || env.GITHUB_SHA}}
+          echo ${{ env.GITHUB_SHA }}
+          echo "expression inside"
+          echo ${{ github.event.sha || env.GITHUB_SHA }}
+          echo "expression outside"
+          echo ${{ github.event.sha }} || {{ env.GITHUB_SHA }}
+          
           
       - name: List github sha
         run: |
