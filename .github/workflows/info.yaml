@@ -18,6 +18,10 @@ jobs:
           echo ${{ github.event.pull_request.head.sha }}
           echo "event->sha"
           echo ${{ github.event.sha }}
+          echo ${{ github.event.sha || GITHUB_SHA}}
+          echo ${{ github.event.sha || env.GITHUB_SHA}}
+          echo ${{ github.event.sha }} || $GITHUB_SHA
+          
       - name: List github sha
         run: |
           echo $GITHUB_SHA
