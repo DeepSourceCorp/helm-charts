@@ -21,5 +21,5 @@ jobs:
       - name: List github sha
         run: |
           echo $GITHUB_SHA
-          echo: "Ref:"
+          echo "Ref:"
           echo $GITHUB_REF
