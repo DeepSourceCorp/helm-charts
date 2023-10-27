@@ -1,0 +1,23 @@
+name: List github events and other contexts
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+  
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: List contexts
+        run: |
+          echo "event->pr->head->sha"
+          echo ${{ github.event.pull_request.head.sha }}
+          echo "event->sha"
+          echo ${{ github.event.sha }}
+      - name: List github sha
+        run: |
+          echo $GITHUB_SHA
