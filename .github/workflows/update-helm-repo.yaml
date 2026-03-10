@@ -38,7 +38,7 @@ env:
 
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     outputs:
       changed: ${{ steps.list-changed.outputs.changed }}
       chartpath: ${{ steps.list-changed.outputs.chartpath }}
@@ -86,7 +86,7 @@ jobs:
 
   release:
     needs: [ setup ]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: needs.setup.outputs.changed == 'true'
     steps:
       - name: Checkout
